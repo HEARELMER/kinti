@@ -1,0 +1,1365 @@
+/* ==========================================================================
+   KINTI: UNA AVENTURA POR EL PERÚ
+   Sistema de diseño: Chaski Playful Indie & Minimalismo Cálido
+   ========================================================================== */
+
+:root {
+  /* Paleta institucional y lúdica */
+  --color-crema: #FFF8EB;
+  --color-crema-card: #FFFFFF;
+  --color-noche: #172554;
+  --color-noche-muted: #334155;
+  --color-turquesa: #14B8A6;
+  --color-turquesa-dark: #0F766E;
+  --color-turquesa-light: #CCFBF1;
+  --color-coral: #FB7185;
+  --color-coral-dark: #E11D48;
+  --color-coral-light: #FFE4E6;
+  --color-amarillo: #FBBF24;
+  --color-amarillo-dark: #D97706;
+  --color-amarillo-light: #FEF3C7;
+  --color-lavanda: #C4B5FD;
+  --color-lavanda-dark: #7C3AED;
+  --color-lavanda-light: #EDE9FE;
+
+  --color-fondo-cielo: #E0F2FE;
+  --color-borde: #172554;
+  --color-borde-suave: #CBD5E1;
+
+  --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --shadow-tactile: 0 4px 0 #172554;
+  --shadow-tactile-sm: 0 2px 0 #172554;
+  --shadow-tactile-lg: 0 6px 0 #172554;
+  --shadow-elevated: 0 10px 25px -5px rgba(23, 37, 84, 0.15);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-fondo-cielo);
+  color: var(--color-noche);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(180deg, #E0F2FE 0%, #F0F9FF 60%, #FEF9C3 100%);
+}
+
+/* ==========================================================================
+   TIPOGRAFÍA Y ELEMENTOS BASE
+   ========================================================================== */
+
+h1, h2, h3, h4 {
+  color: var(--color-noche);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+button {
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid var(--color-borde);
+  background: var(--color-crema);
+  color: var(--color-noche);
+  border-radius: var(--radius-md);
+  padding: 10px 18px;
+  box-shadow: var(--shadow-tactile);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #172554;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-tactile-sm);
+}
+
+/* Variantes de botones */
+.btn-primary {
+  background-color: var(--color-coral);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-coral-dark);
+}
+
+.btn-secondary {
+  background-color: var(--color-turquesa);
+  color: #FFFFFF;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-turquesa-dark);
+}
+
+.btn-tertiary {
+  background-color: var(--color-amarillo);
+  color: var(--color-noche);
+}
+
+.btn-tertiary:hover:not(:disabled) {
+  background-color: var(--color-amarillo-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.btn-ghost:active {
+  transform: none;
+}
+
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   PANTALLA DE TÍTULO / INICIO
+   ========================================================================== */
+
+.title-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 4vh, 32px) clamp(16px, 4vw, 32px);
+  background: radial-gradient(circle at 50% 30%, #FFFBEB 0%, #F0F9FF 50%, #DDF4FF 100%);
+  overflow-y: auto;
+}
+
+.title-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  align-items: center;
+}
+
+.title-badge {
+  background: var(--color-crema);
+  border: 2px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--color-noche);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 520px;
+  margin: auto 0;
+}
+
+.title-portal-container {
+  position: relative;
+  width: clamp(200px, 32vw, 260px);
+  height: clamp(200px, 32vw, 260px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.title-portal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(20, 184, 166, 0.25));
+  animation: floatMascot 3.5s ease-in-out infinite;
+}
+
+.title-portal-ring {
+  position: absolute;
+  inset: -8px;
+  border: 3px dashed var(--color-lavanda);
+  border-radius: 50%;
+  animation: spinSlow 35s linear infinite;
+  pointer-events: none;
+}
+
+.title-heading {
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 900;
+  color: var(--color-noche);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.title-heading span.kinti-name {
+  color: var(--color-turquesa-dark);
+}
+
+.title-subtitle {
+  font-size: clamp(1rem, 2.8vw, 1.25rem);
+  color: var(--color-noche);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.title-tagline {
+  font-size: clamp(0.9rem, 2.2vw, 1rem);
+  color: var(--color-noche-muted);
+  max-width: 440px;
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+.title-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.title-btn-start {
+  height: 54px;
+  font-size: 1.1rem;
+}
+
+.title-btn-continue {
+  height: 48px;
+  font-size: 0.95rem;
+}
+
+.title-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+/* ==========================================================================
+   INTERFAZ DURANTE LA PARTIDA (HUD)
+   ========================================================================== */
+
+.game-hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.hud-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hud-top-bar > * {
+  pointer-events: auto;
+}
+
+.hud-pill {
+  background: var(--color-crema);
+  border: 2px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  border-radius: var(--radius-full);
+  padding: 4px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-stage-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-noche);
+}
+
+.hud-fragments {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-crema);
+  border: 2px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  border-radius: var(--radius-full);
+  padding: 4px 8px;
+}
+
+.hud-fragment-slot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--color-noche);
+  background: #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #94A3B8;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s;
+}
+
+.hud-fragment-slot.unlocked {
+  background: var(--color-amarillo);
+  color: var(--color-noche);
+  transform: scale(1.08);
+}
+
+.hud-fragment-slot.unlocked.inca {
+  background: var(--color-turquesa);
+  color: #FFFFFF;
+}
+
+.hud-fragment-slot.unlocked.indep {
+  background: var(--color-coral);
+  color: #FFFFFF;
+}
+
+.hud-fragment-slot.pulse-gain {
+  animation: fragmentGain 0.8s ease-in-out;
+}
+
+/* Barra de Misión actual */
+.hud-mission-bar {
+  pointer-events: auto;
+  align-self: center;
+  background: rgba(255, 248, 235, 0.95);
+  backdrop-filter: blur(4px);
+  border: 2px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  border-radius: var(--radius-full);
+  padding: 4px 14px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-noche);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 90%;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.mission-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-turquesa);
+  animation: pulseDot 2s infinite;
+}
+
+/* ==========================================================================
+   ESCENARIO 2D Y CÁMARA
+   ========================================================================== */
+
+.stage-viewport {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  touch-action: pan-x;
+}
+
+.world-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1900px; /* Ancho lateral expandido */
+  height: 100%;
+  will-change: transform;
+}
+
+.scenery-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  pointer-events: none;
+  select: none;
+}
+
+/* Efectos visuales de descubrimiento */
+.scenery-effect {
+  position: absolute;
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.scenery-effect.active {
+  opacity: 1;
+}
+
+.fx-water-ripple {
+  bottom: 12%;
+  left: 380px;
+  width: 320px;
+  height: 60px;
+  background: radial-gradient(ellipse at center, rgba(20, 184, 166, 0.35) 0%, rgba(20, 184, 166, 0) 70%);
+  animation: wavePulse 2.5s infinite alternate;
+}
+
+.fx-plaza-glow {
+  bottom: 18%;
+  left: 880px;
+  width: 240px;
+  height: 110px;
+  background: radial-gradient(ellipse at center, rgba(251, 191, 36, 0.45) 0%, rgba(251, 191, 36, 0) 70%);
+  animation: plazaLight 3s infinite alternate;
+}
+
+.fx-pyramid-shine {
+  bottom: 25%;
+  left: 1380px;
+  width: 280px;
+  height: 180px;
+  background: radial-gradient(circle at center, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0) 70%);
+  animation: pyramidShine 3s infinite alternate;
+}
+
+.fx-road-gold {
+  bottom: 12%;
+  left: 360px;
+  width: 380px;
+  height: 50px;
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0) 0%, rgba(251, 191, 36, 0.5) 50%, rgba(251, 191, 36, 0) 100%);
+  animation: wavePulse 2s infinite alternate;
+}
+
+.fx-chasqui-dash {
+  bottom: 16%;
+  left: 920px;
+  width: 220px;
+  height: 90px;
+  background: radial-gradient(ellipse at center, rgba(20, 184, 166, 0.3) 0%, rgba(20, 184, 166, 0) 70%);
+}
+
+.fx-terrace-green {
+  bottom: 20%;
+  left: 1400px;
+  width: 280px;
+  height: 130px;
+  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0) 70%);
+  animation: wavePulse 3s infinite alternate;
+}
+
+.fx-libertador-glow {
+  bottom: 16%;
+  left: 400px;
+  width: 240px;
+  height: 100px;
+  background: radial-gradient(circle at center, rgba(251, 113, 133, 0.35) 0%, rgba(251, 113, 133, 0) 70%);
+}
+
+.fx-calendar-shine {
+  bottom: 18%;
+  left: 920px;
+  width: 220px;
+  height: 100px;
+  background: radial-gradient(circle at center, rgba(251, 191, 36, 0.35) 0%, rgba(251, 191, 36, 0) 70%);
+}
+
+.fx-balcony-sparkle {
+  bottom: 18%;
+  left: 1400px;
+  width: 260px;
+  height: 120px;
+  background: radial-gradient(circle at center, rgba(196, 181, 253, 0.35) 0%, rgba(196, 181, 253, 0) 70%);
+}
+
+/* ==========================================================================
+   HOTSPOTS DE DESCUBRIMIENTO
+   ========================================================================== */
+
+.hotspot-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 15;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.hotspot-beacon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--color-crema);
+  border: 2.5px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-amarillo-dark);
+  font-weight: 800;
+  font-size: 1.1rem;
+  animation: bounceBeacon 2.2s infinite;
+}
+
+.hotspot-ring {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 2px solid var(--color-amarillo);
+  opacity: 0.6;
+  animation: pingBeacon 2.2s infinite;
+  pointer-events: none;
+}
+
+.hotspot-label {
+  margin-top: 4px;
+  background: var(--color-crema);
+  border: 1.5px solid var(--color-noche);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-noche);
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(23, 37, 84, 0.1);
+}
+
+.hotspot-node.completed .hotspot-beacon {
+  background: var(--color-turquesa);
+  color: #FFFFFF;
+  border-color: var(--color-noche);
+  animation: none;
+  transform: scale(0.85);
+  opacity: 0.75;
+}
+
+.hotspot-node.completed .hotspot-ring {
+  display: none;
+}
+
+/* ==========================================================================
+   PORTAL TEMPORAL
+   ========================================================================== */
+
+.portal-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 18;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.portal-core {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFFFFF 0%, #C4B5FD 45%, #7C3AED 90%);
+  border: 3px solid var(--color-noche);
+  box-shadow: 0 0 24px rgba(124, 58, 237, 0.6), var(--shadow-tactile);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulsePortal 2.2s infinite alternate;
+}
+
+.portal-ring-outer {
+  position: absolute;
+  width: 124px;
+  height: 124px;
+  border-radius: 50%;
+  border: 3px dashed var(--color-lavanda);
+  animation: spinSlow 12s linear infinite;
+  pointer-events: none;
+}
+
+.portal-ring-inner {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  border: 2px dashed var(--color-amarillo);
+  animation: spinSlow 8s linear infinite reverse;
+  pointer-events: none;
+}
+
+.portal-node.locked {
+  opacity: 0.35;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+.portal-label {
+  position: absolute;
+  bottom: -18px;
+  background: var(--color-lavanda-light);
+  border: 2px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-noche);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   PERSONAJE KINTI
+   ========================================================================== */
+
+.kinti-container {
+  position: absolute;
+  width: 96px;
+  height: 76px;
+  z-index: 20;
+  transform-origin: center center;
+  pointer-events: none;
+  transition: transform 0.12s linear;
+  filter: drop-shadow(0 6px 8px rgba(0, 42, 37, 0.22));
+}
+
+.kinti-sprite {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.kinti-prompt-badge {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-coral);
+  color: #FFFFFF;
+  border: 2px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 800;
+  white-space: nowrap;
+  animation: bounceMini 1.2s infinite;
+  display: none;
+}
+
+.kinti-prompt-badge.visible {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ==========================================================================
+   CONTROLES INFERIORES DE MOVIMIENTO E INTERACCIÓN
+   ========================================================================== */
+
+.game-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  padding: 10px 16px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.controls-dpad {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.ctrl-btn {
+  width: 58px;
+  height: 52px;
+  border-radius: var(--radius-lg);
+  font-size: 1.4rem;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.controls-action {
+  pointer-events: auto;
+}
+
+.btn-explore {
+  height: 52px;
+  padding: 0 20px;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background-color: var(--color-turquesa);
+  color: #FFFFFF;
+  transition: all 0.2s ease;
+}
+
+.btn-explore.active-highlight {
+  background-color: var(--color-coral);
+  color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(251, 113, 133, 0.6), var(--shadow-tactile);
+  animation: pulseExplore 1.6s infinite;
+}
+
+.btn-explore:disabled {
+  background-color: #E2E8F0;
+  color: #94A3B8;
+  border-color: #94A3B8;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   MODALES Y DIÁLOGOS
+   ========================================================================== */
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  background-color: rgba(23, 37, 84, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+.dialog-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--color-crema);
+  border: 2.5px solid var(--color-noche);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-lg), var(--shadow-elevated);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: cardSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dialog-speaker-tag {
+  background: var(--color-turquesa);
+  color: #FFFFFF;
+  border: 1.5px solid var(--color-noche);
+  border-radius: var(--radius-full);
+  padding: 3px 12px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.dialog-body-text {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-noche);
+  font-weight: 600;
+}
+
+.dialog-didactic-box {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid var(--color-borde-suave);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  font-size: 0.88rem;
+  color: var(--color-noche-muted);
+  line-height: 1.45;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   PANEL DE ACTIVIDADES EDUCATIVAS
+   ========================================================================== */
+
+.activity-card {
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-crema);
+  border: 2.5px solid var(--color-noche);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-lg), var(--shadow-elevated);
+  padding: clamp(16px, 3.5vw, 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: cardSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.activity-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.activity-tag {
+  align-self: flex-start;
+  background: var(--color-amarillo);
+  border: 1.5px solid var(--color-noche);
+  box-shadow: var(--shadow-tactile-sm);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.activity-title {
+  font-size: clamp(1.2rem, 3.5vw, 1.45rem);
+  color: var(--color-noche);
+}
+
+.activity-instruction {
+  font-size: 0.95rem;
+  color: var(--color-noche-muted);
+}
+
+/* Matching: Caral */
+.matching-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.matching-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.column-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-noche-muted);
+  text-align: center;
+}
+
+.match-item {
+  min-height: 58px;
+  background: #FFFFFF;
+  border: 2px solid var(--color-noche);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-tactile-sm);
+  padding: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.match-item:hover:not(.matched) {
+  background-color: var(--color-turquesa-light);
+}
+
+.match-item.selected {
+  background-color: var(--color-amarillo-light);
+  border-color: var(--color-amarillo-dark);
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.5), var(--shadow-tactile-sm);
+  transform: scale(1.02);
+}
+
+.match-item.matched {
+  background-color: var(--color-turquesa-light);
+  border-color: var(--color-turquesa-dark);
+  cursor: default;
+  opacity: 0.9;
+}
+
+.match-item.error-shake {
+  animation: shake 0.4s ease;
+  border-color: var(--color-coral-dark);
+  background-color: var(--color-coral-light);
+}
+
+/* Destination choice: Inca */
+.choice-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.choice-card {
+  background: #FFFFFF;
+  border: 2px solid var(--color-noche);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-tactile-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.choice-card:hover:not(.disabled) {
+  background-color: var(--color-turquesa-light);
+}
+
+.choice-card.correct {
+  background-color: #D1FAE5;
+  border-color: #059669;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4), var(--shadow-tactile-sm);
+}
+
+.choice-card.wrong {
+  background-color: var(--color-coral-light);
+  border-color: var(--color-coral-dark);
+}
+
+.choice-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  border: 1.5px solid var(--color-noche);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.choice-content {
+  flex: 1;
+}
+
+.choice-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-noche);
+}
+
+.choice-desc {
+  font-size: 0.82rem;
+  color: var(--color-noche-muted);
+  margin-top: 2px;
+}
+
+/* Sentence completion: Independencia */
+.sentence-container {
+  background: #FFFFFF;
+  border: 2px solid var(--color-noche);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-tactile-sm);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.8;
+  color: var(--color-noche);
+}
+
+.slot-pill {
+  display: inline-block;
+  vertical-align: middle;
+  background: var(--color-amarillo-light);
+  border: 2px dashed var(--color-amarillo-dark);
+  border-radius: var(--radius-md);
+  padding: 2px 10px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-noche);
+  cursor: pointer;
+  margin: 0 4px;
+  transition: all 0.15s ease;
+}
+
+.slot-pill.filled {
+  background: var(--color-turquesa-light);
+  border: 2px solid var(--color-turquesa-dark);
+}
+
+.slot-options-group {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slot-group-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-noche-muted);
+}
+
+.options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.slot-option-btn {
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  background: #FFFFFF;
+}
+
+.slot-option-btn.selected {
+  background: var(--color-turquesa);
+  color: #FFFFFF;
+}
+
+/* Feedback banner */
+.activity-feedback {
+  background: var(--color-amarillo-light);
+  border: 1.5px solid var(--color-amarillo-dark);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--color-noche);
+  animation: fadeIn 0.2s ease;
+}
+
+.activity-feedback.success {
+  background: #D1FAE5;
+  border-color: #059669;
+  color: #064E3B;
+}
+
+.activity-feedback.error {
+  background: var(--color-coral-light);
+  border-color: var(--color-coral-dark);
+  color: #881337;
+}
+
+/* ==========================================================================
+   PANTALLA FINAL: CELEBRACIÓN Y MEDALLA
+   ========================================================================== */
+
+.victory-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(16px, 4vh, 28px) clamp(16px, 4vw, 28px);
+  background: radial-gradient(circle at 50% 25%, #FFFBEB 0%, #F0F9FF 60%, #DDF4FF 100%);
+  overflow-y: auto;
+}
+
+.victory-card {
+  width: 100%;
+  max-width: 540px;
+  background: var(--color-crema);
+  border: 2.5px solid var(--color-noche);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-tactile-lg), var(--shadow-elevated);
+  padding: clamp(16px, 4vw, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  margin: auto 0;
+}
+
+.victory-medal-wrapper {
+  position: relative;
+  width: clamp(160px, 28vw, 210px);
+  height: clamp(160px, 28vw, 210px);
+  margin-bottom: 4px;
+}
+
+.victory-medal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(251, 191, 36, 0.45));
+  animation: floatMascot 4s ease-in-out infinite;
+}
+
+.victory-halo {
+  position: absolute;
+  inset: -14px;
+  border: 3px dashed var(--color-amarillo);
+  border-radius: 50%;
+  animation: spinSlow 30s linear infinite;
+  pointer-events: none;
+}
+
+.victory-title {
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+  color: var(--color-noche);
+}
+
+.memories-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.memory-item {
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-noche);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--color-noche-muted);
+}
+
+.memory-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.memory-bullet.caral { background-color: var(--color-amarillo); }
+.memory-bullet.inca { background-color: var(--color-turquesa); }
+.memory-bullet.indep { background-color: var(--color-coral); }
+
+/* ==========================================================================
+   MODAL DE FUENTES HISTÓRICAS ("Sobre el contenido")
+   ========================================================================== */
+
+.sources-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.source-item {
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-borde-suave);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.source-entity {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-noche);
+}
+
+.source-topic {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-turquesa-dark);
+}
+
+.source-detail {
+  font-size: 0.82rem;
+  color: var(--color-noche-muted);
+  line-height: 1.45;
+}
+
+.source-url {
+  font-size: 0.75rem;
+  color: #64748B;
+  font-family: monospace;
+}
+
+/* ==========================================================================
+   ANIMACIONES
+   ========================================================================== */
+
+@keyframes floatMascot {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounceMini {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -4px); }
+}
+
+@keyframes bounceBeacon {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pingBeacon {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+@keyframes pulseExplore {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+@keyframes pulsePortal {
+  0%, 100% { transform: scale(0.96); filter: brightness(1); }
+  50% { transform: scale(1.04); filter: brightness(1.2); }
+}
+
+@keyframes wavePulse {
+  0% { transform: scaleY(1); opacity: 0.3; }
+  100% { transform: scaleY(1.3); opacity: 0.6; }
+}
+
+@keyframes plazaLight {
+  0% { opacity: 0.3; transform: scale(0.95); }
+  100% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes pyramidShine {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cardSlideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+@keyframes fragmentGain {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5) rotate(15deg); filter: drop-shadow(0 0 10px var(--color-amarillo)); }
+  100% { transform: scale(1.08) rotate(0); }
+}
+
+/* ==========================================================================
+   ACCESIBILIDAD: PREFERS REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

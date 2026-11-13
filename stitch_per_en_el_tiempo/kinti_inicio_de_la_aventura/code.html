@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><title>Kinti: Una Aventura por el Perú</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed-variant": "#891933", "secondary-fixed": "#ffdadc", "primary-fixed": "#71f8e4", "on-error": "#ffffff", "surface-container": "#ebedff", "error-container": "#ffdad6", "tertiary-container": "#d09c00", "on-tertiary-fixed-variant": "#5c4300", "tertiary": "#795900", "surface-bright": "#faf8ff", "on-secondary": "#ffffff", "on-primary-container": "#00423b", "on-tertiary-container": "#4c3700", "surface-container-highest": "#dce1ff", "surface-tint": "#006b5f", "surface-dim": "#d1d8ff", "primary-container": "#14b8a6", "on-primary-fixed": "#00201c", "error": "#ba1a1a", "tertiary-fixed": "#ffdf9f", "inverse-surface": "#202d5d", "on-background": "#071747", "on-surface-variant": "#3c4947", "outline": "#6c7a77", "background": "#faf8ff", "primary-fixed-dim": "#4fdbc8", "on-primary": "#ffffff", "outline-variant": "#bbcac6", "on-secondary-container": "#730425", "on-primary-fixed-variant": "#005048", "surface-container-lowest": "#ffffff", "surface-container-low": "#f3f2ff", "surface-variant": "#dce1ff", "on-error-container": "#93000a", "secondary-container": "#fe7488", "primary": "#006b5f", "on-tertiary": "#ffffff", "inverse-primary": "#4fdbc8", "on-tertiary-fixed": "#261a00", "inverse-on-surface": "#eff0ff", "tertiary-fixed-dim": "#f9bd22", "on-surface": "#071747", "surface": "#faf8ff", "secondary": "#a93349", "on-secondary-fixed": "#400010", "secondary-fixed-dim": "#ffb2b9", "surface-container-high": "#e4e7ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "2rem", "gutter-desktop": "2rem", "space-xs": "0.25rem", "gutter-tablet": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "margin-desktop": "3rem", "margin": "1rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}], "headline-lg-mobile": ["26px", {"lineHeight": "34px", "fontWeight": "700"}], "display-lg-mobile": ["34px", {"lineHeight": "42px", "fontWeight": "800"}], "label-lg": ["16px", {"lineHeight": "20px", "fontWeight": "800"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}], "display-lg": ["48px", {"lineHeight": "56px", "fontWeight": "800"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "800"}], "label-md": ["13px", {"lineHeight": "18px", "fontWeight": "700"}], "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}], "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "800"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}], "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col relative select-none antialiased"><main class="flex-1 w-full min-h-screen relative flex flex-col bg-surface"><div class="flex flex-col w-full relative overflow-hidden select-none pb-6">
+<!-- Dynamic Sky Background & Animated Stardust -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+<div class="absolute -top-16 -left-12 w-64 h-64 rounded-full bg-primary-fixed/25 blur-3xl"></div>
+<div class="absolute top-48 -right-16 w-72 h-72 rounded-full bg-secondary-fixed/30 blur-3xl"></div>
+<div class="absolute bottom-24 left-1/4 w-56 h-56 rounded-full bg-tertiary-fixed/35 blur-2xl"></div>
+<!-- Soft Drifting Andean Vector Clouds -->
+<svg class="absolute top-6 -left-10 w-36 text-surface-container-lowest/80 animate-pulse" fill="currentColor" viewbox="0 0 100 45">
+<path d="M15,35 Q10,35 7,30 Q3,25 9,18 Q14,9 25,12 Q33,2 45,6 Q54,2 62,10 Q70,9 75,18 Q82,23 79,31 Q76,35 70,35 Z"></path>
+</svg>
+<svg class="absolute top-20 -right-8 w-44 text-surface-container-lowest/70" fill="currentColor" style="animation: bounce 6s ease-in-out infinite alternate;" viewbox="0 0 100 45">
+<path d="M15,35 Q10,35 7,30 Q3,25 9,18 Q14,9 25,12 Q33,2 45,6 Q54,2 62,10 Q70,9 75,18 Q82,23 79,31 Q76,35 70,35 Z"></path>
+</svg>
+</div>
+<!-- Top Ambient Header / Badge Cluster -->
+<div class="relative z-10 px-5 pt-3 pb-2 flex items-center justify-between">
+<!-- Mini Character Avatar Token -->
+<div class="flex items-center space-x-2 bg-surface-container-lowest/90 px-2.5 py-1 rounded-full shadow-sm">
+<img alt="Kinti mini avatar" class="w-8 h-8 rounded-full object-contain transform -rotate-6" src="https://lh3.googleusercontent.com/aida/ALJJyrBuYZkMcZxMLC-_UqG8O7QUyXwOuNUkqiG9IuYI2Gn6M9VqFMpl--W_ZMIHxB5ukKxEbJDEStuxViPsNqtCXoPy4GKij1Tk5Dwl3qjZDGTl5EjLxZZwAuF6tVsWvZTRMPtAChQG9BDGhdBZOcIeDhIUkyPN7wnmgtxnJPj15V_HmNR2RH-3ey5G32Ckvlg25Cr0FWSGUZlv4t0ZZ4JYG0zOK8zxDUJQCdIH-RJ2pB4"/>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider font-extrabold">Episodio 1</span>
+</div>
+<!-- Category Pill Badge -->
+<div class="inline-flex items-center space-x-1.5 bg-surface-container-highest px-3.5 py-1 rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-primary-container font-extrabold uppercase tracking-wide">Aventura Educativa 2D</span>
+</div>
+</div>
+<!-- Central Hero Stage -->
+<div class="relative z-10 px-4 mt-2 mb-3">
+<div class="relative w-full rounded-3xl overflow-hidden bg-surface-container-lowest shadow-md flex flex-col items-center pt-3 pb-4">
+<!-- Time Portal Portal Ring Backdrop Glow -->
+<div class="relative w-full flex items-center justify-center py-2">
+<!-- Rotating Astral Ring SVG Backdrop -->
+<div class="absolute w-64 h-64 rounded-full border-4 border-dashed border-tertiary-fixed-dim/40 pointer-events-none" style="animation: spin 30s linear infinite;"></div>
+<div class="absolute w-52 h-52 rounded-full border-2 border-dashed border-primary-container/50 pointer-events-none" style="animation: spin 20s linear infinite reverse;"></div>
+<!-- Featured Illustration Image: Hummingbird & Time Portal -->
+<div class="relative w-64 h-64 flex items-center justify-center">
+<img alt="Kinti el colibrí turquesa volando alegremente frente al portal temporal incaico con viñetas de Caral y 1821" class="w-full h-full object-contain filter drop-shadow-md transform transition-transform duration-700 hover:scale-105 active:scale-95" id="hero-kinti" src="https://lh3.googleusercontent.com/aida/ALJJyrBpV1ojXrrsNWDW39vYtIq73K2Q071rVOuEvOKNAWN-33bsDwdQae_wPzpO1nhglLg6hdoSlCvnKI6xT1H1Ra_6h2qVeWz32YvtpoOLx-lcEUbvZJ9A36yiVxkKYERHUTpUBgSDU5GN5ZTZI-j2HpVyY_7ZsIk4XqNs_SbJfNIsb2nGlfuSBxkoce8xHmYsCEAuK95fA--LIb6tGw75vn8c1yVFgTi9dqZvtizYKA"/>
+<!-- Sparkle Micro-badges -->
+<div class="absolute top-2 right-6 bg-tertiary-fixed text-on-tertiary-fixed p-1.5 rounded-full shadow-sm animate-bounce" style="animation-duration: 2.2s;">
+<span class="material-symbols-outlined text-base block" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="absolute bottom-6 left-5 bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full shadow-sm text-center">
+<span class="font-label-sm text-label-sm font-extrabold">Caral ➔ 1821</span>
+</div>
+</div>
+</div>
+<!-- Quick Interactive Portal Selector Strip -->
+<div class="w-full px-5 mt-2 flex items-center justify-around">
+<button class="epoch-chip flex items-center space-x-1 px-2.5 py-1 rounded-full bg-surface-container transition-all scale-100 active:scale-95" data-epoch="caral" type="button">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Caral</span>
+</button>
+<button class="epoch-chip flex items-center space-x-1 px-2.5 py-1 rounded-full bg-primary-container/20 transition-all scale-105 active:scale-95" data-epoch="inka" type="button">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-primary-container font-extrabold">Qhapaq Ñan</span>
+</button>
+<button class="epoch-chip flex items-center space-x-1 px-2.5 py-1 rounded-full bg-surface-container transition-all scale-100 active:scale-95" data-epoch="libertad" type="button">
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface">1821</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Narrative Typography Section -->
+<div class="relative z-10 px-6 text-center flex flex-col items-center">
+<!-- Title Capsule -->
+<div class="relative inline-block mb-1">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-background tracking-tight font-extrabold">
+        Kinti
+      </h1>
+<!-- Radiant decorative sun ray mark -->
+<span class="absolute -top-1 -right-6 text-tertiary-fixed-dim select-none pointer-events-none">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="5"></circle>
+<path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.5-6.5l-2.1 2.1m-8.8 8.8l-2.1 2.1m0-13l2.1 2.1m8.8 8.8l2.1 2.1" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</span>
+</div>
+<!-- Playful Game Subtitle -->
+<p class="font-headline-sm text-headline-sm text-primary font-bold -mt-1 mb-1.5">
+      Una aventura por el Perú
+    </p>
+<!-- Narrative Tagline -->
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto mb-4">
+      Explora el pasado ancestral, resuelve enigmas del tiempo y descubre nuestra historia viva.
+    </p>
+<!-- Journey Meta Pills -->
+<div class="flex items-center justify-center space-x-3 mb-5">
+<div class="flex items-center space-x-1.5 bg-surface-container-low px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-base" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-label-md text-label-md text-on-surface">3 Destinos</span>
+</div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+<div class="flex items-center space-x-1.5 bg-surface-container-low px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<span class="font-label-md text-label-md text-on-surface">3 Minutos</span>
+</div>
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+<div class="flex items-center space-x-1.5 bg-surface-container-low px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-secondary text-base" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-md text-label-md text-on-surface">Codex</span>
+</div>
+</div>
+</div>
+<!-- Primary Call to Action Deck -->
+<div class="relative z-10 px-6 mt-1 flex flex-col items-center w-full">
+<!-- Big Tactile Indie Button -->
+<button class="w-full h-14 bg-secondary-container hover:bg-secondary text-on-secondary rounded-2xl shadow-lg flex items-center justify-center space-x-3 transition-all duration-150 transform hover:-translate-y-0.5 active:translate-y-1 active:shadow-sm" id="start-button" type="button">
+<span class="font-label-lg text-label-lg tracking-wide">Comenzar aventura</span>
+<span class="material-symbols-outlined text-2xl font-bold transition-transform duration-200 group-hover:translate-x-1">
+        arrow_forward
+      </span>
+</button>
+<!-- Secondary Helper Options -->
+<div class="flex items-center justify-between w-full mt-3 px-2">
+<button class="flex items-center space-x-1.5 text-on-surface-variant hover:text-primary transition-colors py-1" type="button">
+<span class="material-symbols-outlined text-lg">volume_up</span>
+<span class="font-label-md text-label-md">Sonido: Activado</span>
+</button>
+<button class="flex items-center space-x-1.5 text-on-surface-variant hover:text-primary transition-colors py-1" type="button">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+<span class="font-label-md text-label-md">Guía Docente</span>
+</button>
+</div>
+</div>
+<!-- Bottom Educational Vignette Summary -->
+<div class="relative z-10 px-6 mt-6">
+<div class="w-full bg-surface-container-lowest/80 rounded-2xl p-3.5 shadow-sm flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center flex-shrink-0 text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-label-sm text-label-sm text-tertiary font-bold uppercase tracking-wide">Ruta Curricular</p>
+<p class="font-body-sm text-body-sm text-on-surface truncate">
+          Un viaje interactivo a través de Caral, el Qhapaq Ñan y 1821.
+        </p>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-lg">chevron_right</span>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const kintiHero = document.getElementById('hero-kinti');
+    const startBtn = document.getElementById('start-button');
+    const epochButtons = document.querySelectorAll('.epoch-chip');
+
+    // Playful bounce on tap
+    if (kintiHero) {
+      kintiHero.addEventListener('click', () => {
+        kintiHero.classList.add('scale-110', 'rotate-6');
+        setTimeout(() => {
+          kintiHero.classList.remove('scale-110', 'rotate-6');
+        }, 300);
+      });
+    }
+
+    // Portal epoch chips selection
+    epochButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        epochButtons.forEach(b => {
+          b.classList.remove('bg-primary-container/20', 'scale-105');
+          b.classList.add('bg-surface-container', 'scale-100');
+          const txt = b.querySelector('span:last-child');
+          if (txt) txt.classList.remove('font-extrabold', 'text-on-primary-container');
+        });
+        btn.classList.add('bg-primary-container/20', 'scale-105');
+        btn.classList.remove('bg-surface-container');
+        const activeText = btn.querySelector('span:last-child');
+        if (activeText) activeText.classList.add('font-extrabold', 'text-on-primary-container');
+      });
+    });
+
+    // Start button micro-sparkle feedback
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        startBtn.classList.add('scale-95');
+        setTimeout(() => {
+          startBtn.classList.remove('scale-95');
+        }, 150);
+      });
+    }
+  })();
+</script></main></body></html>

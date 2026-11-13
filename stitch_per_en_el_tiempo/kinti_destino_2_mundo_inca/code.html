@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><title>Kinti: Una Aventura por el Perú</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;min-height:100vh;margin:0;padding:0;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-fixed-variant": "#891933", "secondary-fixed": "#ffdadc", "primary-fixed": "#71f8e4", "on-error": "#ffffff", "surface-container": "#ebedff", "error-container": "#ffdad6", "tertiary-container": "#d09c00", "on-tertiary-fixed-variant": "#5c4300", "tertiary": "#795900", "surface-bright": "#faf8ff", "on-secondary": "#ffffff", "on-primary-container": "#00423b", "on-tertiary-container": "#4c3700", "surface-container-highest": "#dce1ff", "surface-tint": "#006b5f", "surface-dim": "#d1d8ff", "primary-container": "#14b8a6", "on-primary-fixed": "#00201c", "error": "#ba1a1a", "tertiary-fixed": "#ffdf9f", "inverse-surface": "#202d5d", "on-background": "#071747", "on-surface-variant": "#3c4947", "outline": "#6c7a77", "background": "#faf8ff", "primary-fixed-dim": "#4fdbc8", "on-primary": "#ffffff", "outline-variant": "#bbcac6", "on-secondary-container": "#730425", "on-primary-fixed-variant": "#005048", "surface-container-lowest": "#ffffff", "surface-container-low": "#f3f2ff", "surface-variant": "#dce1ff", "on-error-container": "#93000a", "secondary-container": "#fe7488", "primary": "#006b5f", "on-tertiary": "#ffffff", "inverse-primary": "#4fdbc8", "on-tertiary-fixed": "#261a00", "inverse-on-surface": "#eff0ff", "tertiary-fixed-dim": "#f9bd22", "on-surface": "#071747", "surface": "#faf8ff", "secondary": "#a93349", "on-secondary-fixed": "#400010", "secondary-fixed-dim": "#ffb2b9", "surface-container-high": "#e4e7ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-tablet": "2rem", "gutter-desktop": "2rem", "space-xs": "0.25rem", "gutter-tablet": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xl": "2.5rem", "space-lg": "1.5rem", "margin-desktop": "3rem", "margin": "1rem" }, "fontFamily": { "headline-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}], "headline-lg-mobile": ["26px", {"lineHeight": "34px", "fontWeight": "700"}], "display-lg-mobile": ["34px", {"lineHeight": "42px", "fontWeight": "800"}], "label-lg": ["16px", {"lineHeight": "20px", "fontWeight": "800"}], "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "700"}], "display-lg": ["48px", {"lineHeight": "56px", "fontWeight": "800"}], "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "800"}], "label-md": ["13px", {"lineHeight": "18px", "fontWeight": "700"}], "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}], "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "800"}], "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}], "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "500"}] } } } };</script></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col relative select-none antialiased"><main class="flex-1 w-full min-h-screen relative flex flex-col bg-surface"><div class="flex flex-col w-full relative select-none overflow-hidden pb-4">
+<!-- TOP GAME HUD -->
+<header class="relative z-30 w-full px-4 pt-2 pb-2 flex items-center justify-between gap-2">
+<!-- Pause / Menu button -->
+<button aria-label="Pausa" class="w-11 h-11 rounded-full bg-surface-container-lowest text-on-surface shadow-md flex items-center justify-center active:scale-95 transition-transform flex-shrink-0" id="pause-btn">
+<span class="material-symbols-outlined text-[26px]">file_export</span>
+</button>
+<!-- Destination Pill Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-lowest shadow-md flex-1 max-w-[210px] justify-center min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] flex-shrink-0 animate-pulse">temple_hindu</span>
+<div class="flex flex-col min-w-0 text-center">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider truncate">Destino 2</span>
+<span class="font-label-md text-label-md text-on-surface truncate leading-tight">Mundo Inca (S. XV)</span>
+</div>
+</div>
+<!-- Time Medal Tracker (3 Chrono-Fragments) -->
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-surface-container-lowest shadow-md flex-shrink-0">
+<!-- Fragment 1: Unlocked (Caral Sun / Gold) -->
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed-dim text-on-tertiary-container flex items-center justify-center shadow-sm" title="Fragmento 1: Caral (Desbloqueado)">
+<span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<!-- Fragment 2: Pulsing Active (Inca Realm) -->
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-sm animate-bounce" id="hud-frag-2" title="Fragmento 2: Qhapaq Ñan (En progreso)">
+<span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">landscape</span>
+</div>
+<!-- Fragment 3: Locked Outline -->
+<div class="w-7 h-7 rounded-full bg-surface-container text-outline flex items-center justify-center" title="Fragmento 3: Virreinato (Bloqueado)">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+</div>
+</div>
+</header>
+<!-- 2D GAME STAGE VIEWPORT (Indie Adventure Setting) -->
+<section class="relative w-full h-[400px] overflow-hidden rounded-2xl mx-auto shadow-md">
+<!-- Andean Landscape & Qhapaq Ñan Highway Background -->
+<img alt="Paisaje 2D de los Andes peruanos con montañas nevadas, terrazas agrícolas verdes andenes y el camino inca empedrado Qhapaq Ñan" class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" src="https://lh3.googleusercontent.com/aida/ALJJyrDiM4cxCF0XU5lvZ0mv2rPxFtsj5a5v4hZDhtkIw1mDIU7LUBIV9tKgyqnPKTuScUBjna9GYUP2AtCWE6JSCkZDUYy1R4eVWxoIAlqfuy_3_-JB_8k9S5PQQF3IsQnSSZwWSAL-LROjQLbit7LlVBxDDU5elAcIFgQO80oY_dp_-S_CrBw2xmRyCBAt9e2ijJOBO6dBchNXWQSBwZCeffCrelr3JoKnVX8IaxHddks"/>
+<!-- Subtle atmospheric sky gradient overlay for depth -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none"></div>
+<!-- Golden Beacon Sparkle (Interactive Discovery Point) -->
+<div class="absolute top-[48%] left-[54%] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+<div class="w-14 h-14 rounded-full bg-tertiary-fixed/30 animate-ping absolute"></div>
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed-dim/60 blur-xs flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-[28px]" style="font-variation-settings: 'FILL' 1;">arrow_back_ios_new</span>
+</div>
+</div>
+<!-- Chasqui Inca Messenger Speech Bubble (In-world) -->
+<div class="absolute top-[28%] right-3 max-w-[210px] bg-surface-container-lowest text-on-surface p-2.5 rounded-2xl shadow-lg z-10 transition-all duration-300">
+<div class="flex items-center gap-1 mb-1">
+<span class="font-label-sm text-label-sm bg-primary text-on-primary px-2 py-0.5 rounded-full uppercase tracking-wider">Chasqui Wayna</span>
+</div>
+<p class="font-body-sm text-body-sm leading-snug">
+        “Recorro caminos empedrados que conectan los cuatro suyos del <span class="text-primary font-bold">Tahuantinsuyo</span>.”
+      </p>
+<!-- Bubble notch pointer -->
+<div class="absolute -bottom-2 right-8 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[9px] border-t-surface-container-lowest"></div>
+</div>
+<!-- Kinti flying avatar (Protagonist) with gentle floating animation -->
+<div class="absolute bottom-[22%] left-10 w-24 h-24 z-20 cursor-pointer transition-transform duration-500 hover:scale-105 active:scale-95" id="kinti-sprite" style="filter: drop-shadow(0px 8px 12px rgba(0,32,28,0.25)); animation: floatKinti 3s ease-in-out infinite;">
+<img alt="Kinti el colibrí turquesa con bolso de explorador y pluma rosa en pleno vuelo" class="w-full h-full object-contain pointer-events-none" src="https://lh3.googleusercontent.com/aida/ALJJyrDtrToH2jQWbxQeJjrbdfjowZiUX4QHsSlA9G1iOwtg7Ze2kHlT_FCCCkJi53gBze44TtRUQcpXqXhny0codJmwwFkBSyqdl-FapEW53yVpJzCT9muUp0fIuccG_QYDo8pCMQyOS2VoOuWqcVIgtg-rbh7GWVASM_CbahQH-O0-wYwckc5YyBWr-MgpPvimmF687BpYJCCzhkAMfqYagvT6-xD7goJCUt15YjYAUmA"/>
+</div>
+<!-- Floating Keyframes for Kinti -->
+<svg aria-hidden="true" class="hidden">
+<style>
+        @keyframes floatKinti {
+          0%, 100% { transform: translateY(0px) rotate(1deg); }
+          50% { transform: translateY(-10px) rotate(-3deg); }
+        }
+        @keyframes pulseGoldPath {
+          0%, 100% { opacity: 0.4; }
+          50% { opacity: 0.95; }
+        }
+      </style>
+</svg>
+<!-- Trail Glowing Path line (revealed on quiz answer) -->
+<div class="absolute bottom-[16%] inset-x-0 h-4 bg-tertiary-fixed-dim/0 transition-colors duration-700 pointer-events-none flex items-center justify-center" id="golden-path-glow">
+<div class="w-full h-1 bg-tertiary-fixed-dim/0 rounded-full transition-all duration-700" id="golden-line"></div>
+</div>
+<!-- HUD Arcade Controls Overlay (Left D-Pad & Right Action) -->
+<div class="absolute bottom-3 inset-x-3 flex items-end justify-between z-20 pointer-events-none">
+<!-- Traversal Arrow Buttons -->
+<div class="flex items-center gap-2 pointer-events-auto bg-inverse-surface/40 backdrop-blur-md p-1.5 rounded-full shadow-md">
+<button aria-label="Mover a la izquierda" class="w-10 h-10 rounded-full bg-surface-container-lowest/90 text-on-surface shadow flex items-center justify-center active:scale-90 transition-transform" id="btn-left">
+<span class="material-symbols-outlined text-[22px]">file_download</span>
+</button>
+<button aria-label="Mover a la derecha" class="w-10 h-10 rounded-full bg-surface-container-lowest/90 text-on-surface shadow flex items-center justify-center active:scale-90 transition-transform" id="btn-right">
+<span class="material-symbols-outlined text-[22px]">file_download</span>
+</button>
+</div>
+<!-- Action Cluster: Talk / Explore Button -->
+<div class="pointer-events-auto">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-primary-container text-on-primary-container shadow-md font-label-md text-label-md active:scale-95 transition-transform" id="action-explore">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span>✦ Explorar</span>
+</button>
+</div>
+</div>
+</section>
+<!-- BOTTOM PEDAGOGICAL CHALLENGE PANEL (~30% screen) -->
+<section class="mt-3 px-3 w-full">
+<div class="bg-surface-container-low rounded-2xl p-4 shadow-sm flex flex-col gap-3 relative overflow-hidden">
+<!-- Challenge Header / Question -->
+<div class="flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">help_center</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider block">Desafío Histórico</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface leading-snug">
+            ¿Cómo se llama esta gran red de caminos?
+          </h2>
+</div>
+</div>
+<!-- 3 Multiple Choice Options -->
+<div aria-label="Opciones de respuesta" class="flex flex-col gap-2 w-full mt-1" role="radiogroup">
+<!-- Option A: Correct (Interactive) -->
+<button aria-checked="false" class="option-card w-full text-left p-3 rounded-xl bg-surface-container-lowest text-on-surface shadow-xs flex items-center justify-between group active:scale-[0.99] transition-all" id="opt-a" onclick="selectOption('a')" role="radio">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-label-sm text-label-sm flex-shrink-0 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">A</span>
+<span class="font-label-lg text-label-lg truncate">Qhapaq Ñan</span>
+</div>
+<span class="material-symbols-outlined text-[22px] text-primary opacity-0 transition-opacity" id="badge-check-a">check_circle</span>
+</button>
+<!-- Option B: Ruta de la Seda -->
+<button aria-checked="false" class="option-card w-full text-left p-3 rounded-xl bg-surface-container-lowest text-on-surface shadow-xs flex items-center justify-between group active:scale-[0.99] transition-all" id="opt-b" onclick="selectOption('b')" role="radio">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-label-sm text-label-sm flex-shrink-0">B</span>
+<span class="font-label-lg text-label-lg truncate">Ruta de la Seda</span>
+</div>
+<span class="material-symbols-outlined text-[22px] text-error opacity-0 transition-opacity" id="badge-check-b">cancel</span>
+</button>
+<!-- Option C: Vía Apia -->
+<button aria-checked="false" class="option-card w-full text-left p-3 rounded-xl bg-surface-container-lowest text-on-surface shadow-xs flex items-center justify-between group active:scale-[0.99] transition-all" id="opt-c" onclick="selectOption('c')" role="radio">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="w-6 h-6 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-label-sm text-label-sm flex-shrink-0">C</span>
+<span class="font-label-lg text-label-lg truncate">Vía Apia</span>
+</div>
+<span class="material-symbols-outlined text-[22px] text-error opacity-0 transition-opacity" id="badge-check-c">cancel</span>
+</button>
+</div>
+<!-- In-world Reward Feedback Toast (revealed after correct answer) -->
+<div class="hidden p-3 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed shadow-sm flex items-start gap-2.5 transition-all" id="reward-banner">
+<span class="material-symbols-outlined text-tertiary text-[24px] flex-shrink-0" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-tertiary-fixed leading-tight">
+            ¡Acertaste! Una línea dorada ilumina el <span class="font-bold underline">Qhapaq Ñan</span>.
+          </p>
+<p class="font-body-sm text-body-sm text-on-tertiary-fixed-variant mt-0.5">
+            ¡Segundo fragmento temporal desbloqueado con éxito!
+          </p>
+</div>
+</div>
+<!-- Continue Action Button (Inca Coral #FB7185 / secondary-container) -->
+<button class="w-full py-3.5 px-4 rounded-xl bg-secondary-container text-on-secondary-container font-label-lg text-label-lg shadow-md flex items-center justify-center gap-2 active:scale-95 transition-all opacity-90 hover:opacity-100" id="continue-btn">
+<span>Continuar viaje al portal</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Micro-Interaction Logic for Gameplay Delight -->
+<script>
+  let kintiPos = 40;
+  const sprite = document.getElementById('kinti-sprite');
+  const btnLeft = document.getElementById('btn-left');
+  const btnRight = document.getElementById('btn-right');
+  const exploreBtn = document.getElementById('action-explore');
+
+  if (btnLeft && sprite) {
+    btnLeft.addEventListener('click', () => {
+      kintiPos = Math.max(12, kintiPos - 36);
+      sprite.style.left = kintiPos + 'px';
+      sprite.style.transform = 'scaleX(-1) translateY(-6px)';
+      setTimeout(() => {
+        sprite.style.transform = 'scaleX(1)';
+      }, 350);
+    });
+  }
+
+  if (btnRight && sprite) {
+    btnRight.addEventListener('click', () => {
+      kintiPos = Math.min(260, kintiPos + 36);
+      sprite.style.left = kintiPos + 'px';
+      sprite.style.transform = 'scaleX(1) translateY(-8px)';
+      setTimeout(() => {
+        sprite.style.transform = 'scaleX(1)';
+      }, 300);
+    });
+  }
+
+  if (exploreBtn) {
+    exploreBtn.addEventListener('click', () => {
+      selectOption('a');
+    });
+  }
+
+  function selectOption(choice) {
+    const optA = document.getElementById('opt-a');
+    const optB = document.getElementById('opt-b');
+    const optC = document.getElementById('opt-c');
+    const checkA = document.getElementById('badge-check-a');
+    const checkB = document.getElementById('badge-check-b');
+    const checkC = document.getElementById('badge-check-c');
+    const reward = document.getElementById('reward-banner');
+    const goldenPath = document.getElementById('golden-path-glow');
+    const goldenLine = document.getElementById('golden-line');
+    const hudFrag2 = document.getElementById('hud-frag-2');
+
+    if (choice === 'a') {
+      // Highlight Correct Answer
+      optA.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+      optA.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-md');
+      optA.setAttribute('aria-checked', 'true');
+      checkA.classList.remove('opacity-0');
+      checkA.classList.add('opacity-100');
+
+      // Reset others
+      optB.classList.add('opacity-60');
+      optC.classList.add('opacity-60');
+
+      // Golden road illumination
+      if (goldenPath && goldenLine) {
+        goldenPath.classList.remove('bg-tertiary-fixed-dim/0');
+        goldenPath.classList.add('bg-tertiary-fixed-dim/40');
+        goldenLine.classList.remove('bg-tertiary-fixed-dim/0');
+        goldenLine.classList.add('bg-tertiary-fixed-dim', 'shadow-lg');
+      }
+
+      // Unlock second medal fragment pulse
+      if (hudFrag2) {
+        hudFrag2.classList.remove('bg-primary-container', 'text-on-primary-container');
+        hudFrag2.classList.add('bg-tertiary-fixed-dim', 'text-on-tertiary-container');
+      }
+
+      // Reveal reward prompt
+      if (reward) {
+        reward.classList.remove('hidden');
+      }
+    } else {
+      const wrongTarget = choice === 'b' ? optB : optC;
+      const wrongIcon = choice === 'b' ? checkB : checkC;
+      wrongTarget.classList.add('bg-error-container', 'text-on-error-container');
+      wrongIcon.classList.remove('opacity-0');
+      wrongIcon.classList.add('opacity-100');
+      setTimeout(() => {
+        wrongTarget.classList.remove('bg-error-container', 'text-on-error-container');
+        wrongIcon.classList.add('opacity-0');
+      }, 1200);
+    }
+  }
+</script></main></body></html>
